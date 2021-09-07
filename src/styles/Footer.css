@@ -1,0 +1,8 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 5vh;
+  background-color: var(--second-color);
+  font-family: "Josefin Sans", sans-serif;
+}

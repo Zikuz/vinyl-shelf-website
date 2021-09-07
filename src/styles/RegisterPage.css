@@ -1,0 +1,24 @@
+.main form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+label {
+  color: white;
+  font-size: 2rem;
+}
+
+button {
+  display: block;
+  max-width: 200px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+input {
+  font-size: 2rem;
+}

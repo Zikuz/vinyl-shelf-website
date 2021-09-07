@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.header-logo {
+  height: 5.5vmin;
+  pointer-events: none;
+  animation: Vinyl-logo-spin infinite 10s linear;
+}
+
+.header-text-logo {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  padding: 10px;
+  color: var(--fifth-color);
+}
+
+.header-text-logo a.active:hover,
+.header-text-logo a:hover {
+  color: var(--first-color);
+}
+
+.header-text-logo a.active,
+.header-text-logo a,
+a {
+  color: var(--fifth-color);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+@keyframes Vinyl-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
