@@ -1,7 +1,29 @@
 .main {
+  min-height: 85vh;
+}
+
+.main-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--sixth-color);
-  min-height: 85vh;
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.main-header-text {
+  font-size: 3rem;
+  font-family: "Josefin Sans", sans-serif;
+  color: #fff;
+}
+
+.main-link {
+  font-size: 1.2rem;
+  font-family: "Josefin Sans", sans-serif;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 20px;
 }

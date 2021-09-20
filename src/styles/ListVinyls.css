@@ -1,0 +1,33 @@
+.main-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 85vh;
+  background-color: rgb(58, 58, 58);
+}
+
+.vinyl-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 85vh;
+  list-style: none;
+}
+
+.container-list-element {
+  background-color: white;
+  font-size: 1.5rem;
+}
+
+.vinyl-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.element-img {
+  width: 13vw;
+}

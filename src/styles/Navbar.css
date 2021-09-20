@@ -1,68 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 :root {
-  --first-color: #131515;
-  --second2-color: #e42b2b;
-  --second-color: #fb4848;
-  --third-color: #339989;
-  --fourth-color: #7de2d1;
-  --fifth-color: #fffafb;
-  --sixth-color: #4a4a48;
+  --background: rgb(233, 233, 233);
 }
 
 .navbar {
-  width: 100%;
-  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--second-color);
+  width: 100%;
+  height: 10vh;
+  padding: 0px 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 15px 4px;
+  background-color: var(--background);
 }
 
-.nav-menu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  list-style-type: none;
-  width: 20vw;
-}
-
-.btn-register,
-.btn-login {
-  font-size: 1rem;
+.menu-login {
+  font-size: 1.3rem;
   font-family: "Josefin Sans", sans-serif;
-  border: none;
-  padding: 0.4em 1em;
-  border-radius: 50px;
   outline: none;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-register {
+  transition: 0.2s;
   background-color: var(--second-color);
-  border: 3px solid #fff;
-  color: #fff;
+  color: #131515;
 }
 
-.btn-register:hover {
-  background-color: var(--second2-color);
-  border: 3px solid var(--second2-color);
-}
-
-.btn-login {
-  background-color: #fff;
-  border: 3px solid #fff;
-  color: var(--second2-color);
-}
-
-.btn-login:hover {
-  background-color: var(--second2-color);
-  border: 3px solid var(--second2-color);
-  color: #fff;
+.menu-login:hover {
+  text-decoration: underline;
+  color: #131515;
 }
