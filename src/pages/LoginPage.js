@@ -62,11 +62,8 @@ export default class LoginPage extends Component {
     let password = false;
     let correct = false;
 
-    if (this.state.username === 'ziku') {
+    if (this.state.username === 'ziku' && this.state.password === '12345') {
       username = true;
-    }
-
-    if (this.state.password === '12345') {
       password = true;
     }
 
@@ -96,7 +93,7 @@ export default class LoginPage extends Component {
             </div>
 
             <div className="form-container">
-              <input type="text" className="form_input" onChange={this.handleChange} value={this.state.password} placeholder="Password" id="password" name="password"  />
+              <input type="password" className="form_input" onChange={this.handleChange} value={this.state.password} placeholder="Password" id="password" name="password"  />
               {this.state.errors.password && <span className="error_form_message">{this.messages.password}</span>}
             </div>
         

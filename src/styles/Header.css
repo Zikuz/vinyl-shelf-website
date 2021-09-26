@@ -3,6 +3,7 @@
   flex-direction: row;
   align-items: center;
   width: 50vw;
+  user-select: none;
 }
 
 .header-logo {

@@ -107,12 +107,12 @@ export default class RegisterPage extends Component {
             </div>
 
             <div className="form-container">
-              <input type="text" className="form_input" onChange={this.handleChange} value={this.state.password} placeholder="Password" id="password" name="password"  />
+              <input type="password" className="form_input" onChange={this.handleChange} value={this.state.password} placeholder="Password" id="password" name="password"  />
               {this.state.errors.password && <span className="error_form_message">{this.messages.password}</span>}
             </div>
 
             <div className="form-container">
-              <input type="text" className="form_input" onChange={this.handleChange} value={this.state.password_confirm} placeholder="Confirm password" id="password_confirm" name="password_confirm" />
+              <input type="password" className="form_input" onChange={this.handleChange} value={this.state.password_confirm} placeholder="Confirm password" id="password_confirm" name="password_confirm" />
               {this.state.errors.password_confirm && <span className="error_form_message">{this.messages.password_confirm}</span>}
             </div>
         

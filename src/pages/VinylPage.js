@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Vinyl from '../components/Vinyl';
+import '../styles/Vinyl.css';
 
 const VinylPage = ({ match }) => {
     return (
-        <>
-            <div>Vinyl Page</div>
+        <div className="main-vinyl">
             <Vinyl id={match.params.id} name={match.params.id}/>
-            <Link to="/list-vinyls">Back to vinyl list</Link>
-        </>
+            
+        </div>
     );
 }
- 
 export default VinylPage;
