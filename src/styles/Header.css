@@ -7,7 +7,7 @@
 }
 
 .header-logo {
-  height: 5.5vmin;
+  height: 50px;
   pointer-events: none;
   animation: Vinyl-logo-spin infinite 10s linear;
 }
