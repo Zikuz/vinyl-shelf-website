@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  min-height: 90vh;
   width: 100%;
   background-size: cover;
   background-position: top;
@@ -42,16 +42,6 @@
 .form_input:focus {
   outline: none;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-  /* border-botto
-  .className="error_form_message"m: 3px solid #54c87b; */
-}
-
-/* .form_input:focus:invalid {
-  border-bottom: 3px solid #fb732a;
-} */
-
-.form_radio-input {
-  display: none;
 }
 
 .form-header-container {

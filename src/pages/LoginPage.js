@@ -79,6 +79,8 @@ export default class LoginPage extends Component {
   }
 
   render() {
+    const {username, password} = this.state
+    
     return (
       <div className="main">
         <div className="main-form" style={{ backgroundImage: `linear-gradient( to bottom, rgba(105, 103, 103, 0.555), rgba(129, 129, 129, 0.59)),url(${img})`}}>
@@ -88,12 +90,12 @@ export default class LoginPage extends Component {
             </div>
 
             <div className="form-container">
-              <input type="text" className="form_input" onChange={this.handleChange} value={this.state.username} placeholder="Name" id="username" name="username" />
+              <input type="text" className="form_input" onChange={this.handleChange} value={username} placeholder="Name" id="username" name="username" />
               {this.state.errors.username && <span className="error_form_message">{this.messages.username}</span>}
             </div>
 
             <div className="form-container">
-              <input type="password" className="form_input" onChange={this.handleChange} value={this.state.password} placeholder="Password" id="password" name="password"  />
+              <input type="password" className="form_input" onChange={this.handleChange} value={password} placeholder="Password" id="password" name="password"  />
               {this.state.errors.password && <span className="error_form_message">{this.messages.password}</span>}
             </div>
         
