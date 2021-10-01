@@ -1,12 +1,22 @@
 import React from 'react';
 import Vinyl from '../components/Vinyl';
-import '../styles/Vinyl.css';
+import styled from 'styled-components';
+
+const MainVinyl = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 85vh;
+    background-color: rgb(212, 212, 212);
+`
 
 const VinylPage = ({ match }) => {
     return (
-        <div className="main-vinyl">
+        <MainVinyl>
             <Vinyl id={match.params.id} name={match.params.id}/>   
-        </div>
+        </MainVinyl>
     );
 }
 export default VinylPage;
