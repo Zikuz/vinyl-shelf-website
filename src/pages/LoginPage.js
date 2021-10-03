@@ -113,10 +113,12 @@ export default class LoginPage extends Component {
       password: false,
     }
   }
+  
   messages = {
     username: 'Invalid username',
     password: 'Invalid password',
   }
+
   handleChange = e => {
     const name = e.target.name;
     const type = e.target.type;
@@ -128,6 +130,7 @@ export default class LoginPage extends Component {
       })
     } 
   }
+
   handleSubmit = e => {
     e.preventDefault()
 
@@ -152,6 +155,7 @@ export default class LoginPage extends Component {
       })
     }
   }
+
   formValidation = () => {
     let username = false;
     let password = false;
@@ -172,6 +176,7 @@ export default class LoginPage extends Component {
       password,
     })
   }
+
   render() {
     const {username, password} = this.state
     

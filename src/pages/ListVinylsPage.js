@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 import img1 from "../images/img1.jpg";
 import img2 from "../images/img2.jpg";
@@ -7,9 +8,8 @@ import img3 from "../images/img3.jpg";
 import img4 from "../images/img4.jpg";
 import img5 from "../images/img5.jpg";
 import img6 from "../images/img6.jpg";
-// import img7 from '../images/img7.jpg'
+import img7 from "../images/metallica.jpg";
 import img8 from "../images/img8.jpg";
-import styled from "styled-components";
 
 const VinylListMain = styled.div`
   display: flex;
@@ -21,15 +21,18 @@ const VinylListMain = styled.div`
   background-size: cover;
   background-position: top;
   position: relative;
+  background-image: linear-gradient( to bottom, rgba(105, 103, 103, 0.8), rgba(105, 103, 103, 0.8)),url(${img8});
 `
 
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   position: sticky;
+  background-color: #fff;
+  width: 100%;
   top: 0;
-  height: 15vh;
+  height: 10vh;
 `
 
 const SearchInput = styled.input`
@@ -40,17 +43,53 @@ const SearchInput = styled.input`
   -moz-box-shadow: inset 0px 0px 36px -17px rgba(184, 184, 184, 1);
   box-shadow: inset 0px 0px 36px -17px rgba(184, 184, 184, 1);
   border-radius: 0.5rem;
-  padding: 1.4rem 2rem;
+  padding: 20px 30px;
+  /* padding: 1.4rem 2rem; */
   transition: all 0.3s;
+`
+  
+const AddVinyl = styled(Link)`
+  font-size: 1.1rem;
+  padding: 20px 30px;
+  /* padding: 1.4rem 2rem; */
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
 `
 
 const VinylList = styled.ul`
   list-style: none;
-  min-height: 30vh;
+  margin-top: 15px;
+  min-height: 75vh;
 `
+
+const VinylElementList = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  padding-right: 10px;
+  width: 100%;
+  height: 8vh;
+  margin-bottom: 20px; 
+  /* border-radius: 20px 0 0 20px;  */
+  border-radius: 0 20px 20px 0; 
+  `
+
 const VinylElementText = styled.span`
-  color: rgb(167, 167, 167);
-  font-size: 1.5rem;
+  /* color: rgb(167, 167, 167); */
+  color: #000;
+  font-size: 1.2em;
+`
+
+const VinylElementImg = styled.img`
+  height: 8vh;
+  width: 8vh;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  /* border-radius: 20px 0 0 20px; */
 `
 
 const VinylElementMain = styled.div`
@@ -58,6 +97,7 @@ const VinylElementMain = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 33vw;
+  padding: 0 5px;
 `
 
 const items = [
@@ -72,7 +112,7 @@ const items = [
     id: "2",
     band: "Metallica",
     name: "Master of Puppets",
-    img: img2,
+    img: img7,
     date: "2002",
   },
   {
@@ -121,28 +161,28 @@ const items = [
     id: "9",
     band: "AC/DC",
     name: "Rock or Bust",
-    img: img1,
+    img: img3,
     date: "2014",
   },
   {
     id: "10",
     band: "AC/DC",
     name: "Live at River Plate",
-    img: img1,
+    img: img4,
     date: "2012",
   },
   {
     id: "11",
     band: "Rammstein",
     name: "Rosenrot",
-    img: img1,
+    img: img5,
     date: "2005",
   },
   {
     id: "12",
     band: "Slayer",
     name: "Repentless",
-    img: img1,
+    img: img6,
     date: "2015",
   },
   {
@@ -167,13 +207,15 @@ export default class ListVinyls extends React.Component {
 
   render() {
     return (
-      <VinylListMain
-        style={{
-          backgroundImage: `linear-gradient( to bottom, rgba(105, 103, 103, 0.555), rgba(129, 129, 129, 0.59)),url(${img8})`,
-        }}
-      >
+      <VinylListMain>
         <SearchContainer>
-          <SearchInput type="text" onChange={this.handleChange} value={this.state.search} placeholder="Search..." />
+          <div>
+            <SearchInput type="text" onChange={this.handleChange} value={this.state.search} placeholder="Search..." />
+            <span>Vinyl records available: {items.length}</span>
+          </div>
+          <AddVinyl to={`/new-vinyl`}>
+              Add vinyl
+          </AddVinyl>
         </SearchContainer>
           
         <VinylList>
@@ -181,23 +223,39 @@ export default class ListVinyls extends React.Component {
             band.toUpperCase().includes(this.state.search.toUpperCase()) ||
             name.toUpperCase().includes(this.state.search.toUpperCase()) ||
             date.includes(this.state.search) ? (
-              <li key={id} name={band} style={{ marginBottom: '20px' }}>
-                <Link to={`/vinyl/${id}`} style={{ display: 'flex',  alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgb(255, 255, 255)', padding: '20px 10px', width: '100%' }}>
+              <VinylElementList key={id} name={band} to={`/vinyl/${id}`}>
+                <VinylElementImg src={img} alt={`img: ${name}`} />
+                <VinylElementText>#{id}</VinylElementText>
+                <VinylElementMain>
+                  <VinylElementText>{band}</VinylElementText>
+                  <VinylElementText>{name}</VinylElementText>
+                </VinylElementMain>
+                <VinylElementText>{date}</VinylElementText>
+              </VinylElementList>
+            ) : (
+              false
+            )
+          )}
+          {/* {items.map(({ band, name, date, id, img }) =>
+            band.toUpperCase().includes(this.state.search.toUpperCase()) ||
+            name.toUpperCase().includes(this.state.search.toUpperCase()) ||
+            date.includes(this.state.search) ? (
+              <VinylElementList key={id} name={band}>
+                <Link to={`/vinyl/${id}`}>
+                  <VinylElementImg src={img} alt={`img: ${name}`} />
                   <VinylElementText>#{id}</VinylElementText>
                   <VinylElementMain>
                     <VinylElementText>{band}</VinylElementText>
                     <VinylElementText>{name}</VinylElementText>
                   </VinylElementMain>
                   <VinylElementText>{date}</VinylElementText>
-                  {/* <img src={img} alt={`img: ${name}`} className="list-element-img" /> */}
                 </Link>
-              </li>
+              </VinylElementList>
             ) : (
               false
             )
-          )}
+          )} */}
         </VinylList>
-        {/* <span>Vinyl records available {list.length}</span> */}
       </VinylListMain>
     );
   }

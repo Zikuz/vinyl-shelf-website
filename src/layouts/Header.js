@@ -36,7 +36,7 @@ const Header = () => {
         <HeaderBox>
             <HeaderImg src={Logo} alt="vinyl-logo" />
             <HeaderText>
-                <NavLink to='/'>Vinyl Shelf</NavLink>
+                <NavLink to='/' style={{ color: '#000' }}>Vinyl Shelf</NavLink>
             </HeaderText>
         </HeaderBox>
     );
