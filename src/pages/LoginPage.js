@@ -39,21 +39,20 @@ const FormContainer = styled.div`
       margin-bottom: 2rem;
     }
 `
-const LoginInput = styled.input`
+export const LoginInput = styled.input`
   display: block;
   font-size: 1.1rem;
   font-family: inherit;
   background-color: rgba(#fff, 0.5);
   border-radius: 0.5rem;
-  border-bottom: 3px solid transparent;
   border: none;
   padding: 1.4rem 2rem;
   width: 95%;
-  transition: all 0.3s;
-
+  transition: all 0.2s;
+  
   &:focus {
     outline: none;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.4);
   }
 `
 

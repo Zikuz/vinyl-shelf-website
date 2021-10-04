@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { LoginInput } from './LoginPage';
 
 const VinylFormMain = styled.div`
     display: flex;
@@ -30,9 +31,8 @@ const VinylFormHeaderText = styled.span`
     letter-spacing: 0.2rem;
 `
 
-const VinylFormContainer = styled.div`
-
-`
+const VinylFormContainer = styled.div``
+const Input = styled(LoginInput)``
 
 const VinylForm = () => {
     return (
@@ -42,7 +42,12 @@ const VinylForm = () => {
                     <VinylFormHeaderText>Add New Vinyl</VinylFormHeaderText>
                 </VinylFormHeader>
                 <VinylFormContainer>
-
+                    <label htmlFor="band">Band:</label>
+                    <Input type="text" id="band" placeholder="band"></Input>
+                    <label htmlFor="name">Name:</label>
+                    <Input type="text" id="name" placeholder="name"></Input>
+                    <label htmlFor="date">Date:</label>
+                    <Input type="text" id="date" placeholder="date"></Input>
                 </VinylFormContainer>
             </AddVinylForm>
         </VinylFormMain>

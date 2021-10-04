@@ -35,24 +35,39 @@ const SearchContainer = styled.div`
   height: 10vh;
 `
 
+const ViynlAvailable = styled.div`
+  color: gray;
+  padding: 5px 0;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-align: center;
+`
+
 const SearchInput = styled.input`
   display: block;
   font-size: 1.1rem;
   background-color: rgba(#fff, 0.5);
-  -webkit-box-shadow: inset 0px 0px 36px -17px rgba(184, 184, 184, 1);
-  -moz-box-shadow: inset 0px 0px 36px -17px rgba(184, 184, 184, 1);
-  box-shadow: inset 0px 0px 36px -17px rgba(184, 184, 184, 1);
   border-radius: 0.5rem;
-  padding: 20px 30px;
-  /* padding: 1.4rem 2rem; */
+  border: none;
+  padding: 1.4rem 2rem;
   transition: all 0.3s;
-`
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  outline: none;
   
+  &:hover {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+  }
+`
+
 const AddVinyl = styled(Link)`
   font-size: 1.1rem;
-  padding: 20px 30px;
-  /* padding: 1.4rem 2rem; */
-  background-color: rgb(255, 255, 255);
+  padding: 1.4rem 2rem;
+  color: #000;
+  background-color: rgb(245, 245, 245);
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -73,12 +88,14 @@ const VinylElementList = styled(Link)`
   width: 100%;
   height: 8vh;
   margin-bottom: 20px; 
-  /* border-radius: 20px 0 0 20px;  */
-  border-radius: 0 20px 20px 0; 
-  `
+  border-radius: 0 20px 20px 0;
+
+  :hover {
+    background-color: aliceblue;
+  }
+`
 
 const VinylElementText = styled.span`
-  /* color: rgb(167, 167, 167); */
   color: #000;
   font-size: 1.2em;
 `
@@ -89,7 +106,6 @@ const VinylElementImg = styled.img`
   object-fit: cover;
   background-size: cover;
   background-position: center;
-  /* border-radius: 20px 0 0 20px; */
 `
 
 const VinylElementMain = styled.div`
@@ -197,21 +213,25 @@ const items = [
 export default class ListVinyls extends React.Component {
   state = {
     search: "",
+    filteredItems: items
   };
 
   handleChange = e => {
+    const filtered = items.filter(item => item.band.toUpperCase().includes(e.target.value.toUpperCase()) || item.name.toUpperCase().includes(e.target.value.toUpperCase()) || item.date.includes(e.target.value))
     this.setState({
       search: e.target.value,
+      filteredItems: filtered
     });
   };
-
+  
   render() {
+
     return (
       <VinylListMain>
         <SearchContainer>
           <div>
             <SearchInput type="text" onChange={this.handleChange} value={this.state.search} placeholder="Search..." />
-            <span>Vinyl records available: {items.length}</span>
+            <ViynlAvailable>Vinyl records available: {this.state.filteredItems.length}</ViynlAvailable>
           </div>
           <AddVinyl to={`/new-vinyl`}>
               Add vinyl
@@ -219,29 +239,8 @@ export default class ListVinyls extends React.Component {
         </SearchContainer>
           
         <VinylList>
-          {items.map(({ band, name, date, id, img }) =>
-            band.toUpperCase().includes(this.state.search.toUpperCase()) ||
-            name.toUpperCase().includes(this.state.search.toUpperCase()) ||
-            date.includes(this.state.search) ? (
-              <VinylElementList key={id} name={band} to={`/vinyl/${id}`}>
-                <VinylElementImg src={img} alt={`img: ${name}`} />
-                <VinylElementText>#{id}</VinylElementText>
-                <VinylElementMain>
-                  <VinylElementText>{band}</VinylElementText>
-                  <VinylElementText>{name}</VinylElementText>
-                </VinylElementMain>
-                <VinylElementText>{date}</VinylElementText>
-              </VinylElementList>
-            ) : (
-              false
-            )
-          )}
-          {/* {items.map(({ band, name, date, id, img }) =>
-            band.toUpperCase().includes(this.state.search.toUpperCase()) ||
-            name.toUpperCase().includes(this.state.search.toUpperCase()) ||
-            date.includes(this.state.search) ? (
-              <VinylElementList key={id} name={band}>
-                <Link to={`/vinyl/${id}`}>
+          {this.state.filteredItems.map(({ band, name, date, id, img }) => (
+                <VinylElementList key={id} name={band} to={`/vinyl/${id}`}>
                   <VinylElementImg src={img} alt={`img: ${name}`} />
                   <VinylElementText>#{id}</VinylElementText>
                   <VinylElementMain>
@@ -249,14 +248,10 @@ export default class ListVinyls extends React.Component {
                     <VinylElementText>{name}</VinylElementText>
                   </VinylElementMain>
                   <VinylElementText>{date}</VinylElementText>
-                </Link>
-              </VinylElementList>
-            ) : (
-              false
-            )
-          )} */}
+                </VinylElementList>
+          ))}
         </VinylList>
       </VinylListMain>
     );
   }
-}
+}        

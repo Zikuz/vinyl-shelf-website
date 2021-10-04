@@ -20,9 +20,11 @@ const HomePageHeader = styled.div`
     justify-content: center;
     height: 90vh;
     width: 100%;
+    gap: 20px;
     background-size: cover;
     background-position: top;
     position: relative;
+    background-image: linear-gradient( to bottom, rgba(105, 103, 103, 0.555), rgba(129, 129, 129, 0.59)),url(${props => props.img});
 `
 
 const HomePageText = styled.span`
@@ -37,7 +39,7 @@ export default function HomePage() {
 
     return (
         <HomePageMain>
-            <HomePageHeader style={{ backgroundImage: `linear-gradient( to bottom, rgba(105, 103, 103, 0.555), rgba(129, 129, 129, 0.59)),url(${img})`}}>
+            <HomePageHeader img={img}>
                 <HomePageText>Welcome at the Vinyl Shelf Webiste!</HomePageText>
                 <NavLink to='/list-vinyls' style={{fontSize: '1.2rem', color: '#fff',  border: '2px solid #fff',  padding: '10px 20px'}}>Vinyl Shelf</NavLink>
             </HomePageHeader>

@@ -19,25 +19,34 @@ const HeaderBox = styled.div`
     user-select: none;
 `
 
-const HeaderText = styled.span`
+const HeaderText = styled(NavLink)`
     font-size: 2.5rem;
     font-weight: 400;
     padding: 10px;
+    color: #000; 
+    margin-top: .5rem;
+
+    @media(max-width: 400px) {
+        font-size: 1.8rem;
+    }
+
 `
 
 const HeaderImg = styled.img`
     height: 50px;
     pointer-events: none;
     animation: ${logoRotate} infinite 10s linear;
+
+    @media(max-width: 400px) {
+        height: 40px;
+    }
 `
 
 const Header = () => {
     return (
         <HeaderBox>
             <HeaderImg src={Logo} alt="vinyl-logo" />
-            <HeaderText>
-                <NavLink to='/' style={{ color: '#000' }}>Vinyl Shelf</NavLink>
-            </HeaderText>
+            <HeaderText to='/'>Vinyl Shelf</HeaderText>
         </HeaderBox>
     );
 }
