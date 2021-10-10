@@ -33,6 +33,23 @@ const HomePageText = styled.span`
     color: #fff;
 `
 
+const HomePageLink = styled(NavLink)`
+    font-size: 1.2rem;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+
+    &:hover {
+       background: #fff;
+       color: #000;
+    }
+`
+
+const HomePageSection = styled.div`
+    height: 95vh;
+`
+
+
 export default function HomePage() {
     const images = [img1, img2, img3, img4, img5, img6];
     const img = images[Math.floor(Math.random() * 6)];
@@ -41,8 +58,11 @@ export default function HomePage() {
         <HomePageMain>
             <HomePageHeader img={img}>
                 <HomePageText>Welcome at the Vinyl Shelf Webiste!</HomePageText>
-                <NavLink to='/list-vinyls' style={{fontSize: '1.2rem', color: '#fff',  border: '2px solid #fff',  padding: '10px 20px'}}>Vinyl Shelf</NavLink>
+                <HomePageLink to='/list-vinyls'>Vinyl Shelf</HomePageLink>
             </HomePageHeader>
+            <HomePageSection>
+
+            </HomePageSection>
         </HomePageMain>
         
     );

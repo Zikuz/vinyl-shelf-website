@@ -9,7 +9,8 @@ import img4 from "../images/img4.jpg";
 import img5 from "../images/img5.jpg";
 import img6 from "../images/img6.jpg";
 import img7 from "../images/metallica.jpg";
-import img8 from "../images/img8.jpg";
+import img9 from "../images/img9.jpg";
+import arrow from "../icons/arrow.svg";
 
 const VinylListMain = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const VinylListMain = styled.div`
   background-size: cover;
   background-position: top;
   position: relative;
-  background-image: linear-gradient( to bottom, rgba(105, 103, 103, 0.8), rgba(105, 103, 103, 0.8)),url(${img8});
+  background-image: linear-gradient( to bottom, rgba(105, 103, 103, 0.8), rgba(105, 103, 103, 0.8)),url(${img9});
 `
 
 const SearchContainer = styled.div`
@@ -29,16 +30,21 @@ const SearchContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   position: sticky;
-  background-color: #fff;
+  background-color: #adb5bd;
   width: 100%;
   top: 0;
-  height: 10vh;
+  min-height: 10vh;
+
+  @media(max-width: 500px) {
+    flex-direction: column;
+    padding: 10px 0;
+  }
 `
 
 const ViynlAvailable = styled.div`
-  color: gray;
+  color: #fff;
   padding: 5px 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 2px;
   text-align: center;
 `
@@ -46,36 +52,48 @@ const ViynlAvailable = styled.div`
 const SearchInput = styled.input`
   display: block;
   font-size: 1.1rem;
-  background-color: rgba(#fff, 0.5);
+  background-color: #fff;
   border-radius: 0.5rem;
   border: none;
+  color: #6b6f78;
   padding: 1.4rem 2rem;
   transition: all 0.3s;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px 1px rgba(73, 80, 87, 0.2);
   outline: none;
   
   &:hover {
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1px 1px rgba(73, 80, 87, 0.5);
   }
   
   &:focus {
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2px 2px rgba(73, 80, 87, 0.5);
   }
 `
 
 const AddVinyl = styled(Link)`
-  font-size: 1.1rem;
+  /* font-size: 1.1rem;
   padding: 1.4rem 2rem;
   color: #000;
   background-color: rgb(245, 245, 245);
   border: none;
   border-radius: 2px;
-  cursor: pointer;
+  cursor: pointer; */
+
+  font-size: 1.2rem;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+
+  &:hover {
+      background: #fff;
+      color: #adb5bd;
+  }
 `
 
 const VinylList = styled.ul`
   list-style: none;
   margin-top: 15px;
+  text-align: center;
   min-height: 75vh;
 `
 
@@ -114,6 +132,15 @@ const VinylElementMain = styled.div`
   justify-content: space-between;
   width: 33vw;
   padding: 0 5px;
+`
+
+const BtnScrollToTop = styled.button`
+  border-radius: 100px;
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  background-color: #fff;
 `
 
 const items = [
@@ -223,16 +250,21 @@ export default class ListVinyls extends React.Component {
       filteredItems: filtered
     });
   };
+
+  scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
   
   render() {
 
     return (
       <VinylListMain>
         <SearchContainer>
-          <div>
-            <SearchInput type="text" onChange={this.handleChange} value={this.state.search} placeholder="Search..." />
-            <ViynlAvailable>Vinyl records available: {this.state.filteredItems.length}</ViynlAvailable>
-          </div>
+          <SearchInput type="text" onChange={this.handleChange} value={this.state.search} placeholder="Search..." />
+          <ViynlAvailable>Vinyl records available: {this.state.filteredItems.length}</ViynlAvailable>     
           <AddVinyl to={`/new-vinyl`}>
               Add vinyl
           </AddVinyl>
@@ -249,7 +281,9 @@ export default class ListVinyls extends React.Component {
                   </VinylElementMain>
                   <VinylElementText>{date}</VinylElementText>
                 </VinylElementList>
-          ))}
+          ))} 
+          {this.state.filteredItems.length === 0 ? false : <BtnScrollToTop onClick={this.scrollToTop}><img src={arrow} alt="ToTop" /></BtnScrollToTop> }
+          
         </VinylList>
       </VinylListMain>
     );
