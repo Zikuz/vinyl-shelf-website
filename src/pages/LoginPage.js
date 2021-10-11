@@ -56,7 +56,7 @@ export const LoginInput = styled.input`
   }
 `
 
-const FormBtn = styled.button`
+export const FormBtn = styled.button`
   padding: 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.2s;

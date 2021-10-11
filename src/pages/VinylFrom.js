@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LoginInput } from './LoginPage';
+import { LoginInput, FormBtn } from './LoginPage';
 import img from '../images/img10.jpg';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const VinylFormMain = styled.div`
     display: flex;
@@ -26,12 +28,20 @@ const AddVinylForm = styled.form`
 `
 
 const VinylFormHeader = styled.div`
-    background-color: rgb(233, 233, 233);
-    height: 10vh;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(233, 233, 233);
+`
+const VinylFormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 40vh;
+    width: 100%;
 `
 
 const VinylFormHeaderText = styled.span`
@@ -39,17 +49,14 @@ const VinylFormHeaderText = styled.span`
     letter-spacing: 0.2rem;
 `
 
-const VinylFormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const Input = styled(LoginInput)`
+    width: 50%;
 `
 
-const Input = styled(LoginInput)``
-
-const VinylFormButton = styled.button`
+const VinylFormButton = styled(FormBtn)`
+    width: 50%;
+    padding: 1rem;
 `
-
 
 const VinylForm = () => {
     return (
@@ -59,18 +66,19 @@ const VinylForm = () => {
                     <VinylFormHeaderText>Add New Vinyl</VinylFormHeaderText>
                 </VinylFormHeader>
                 <VinylFormContainer>
-                    <label htmlFor="band">Band:</label>
-                    <Input type="text" id="band" placeholder="band"></Input>
-                    <label htmlFor="name">Name:</label>
-                    <Input type="text" id="name" placeholder="name"></Input>
-                    <label htmlFor="date">Date:</label>
-                    <Input type="text" id="date" placeholder="date"></Input>
-                    <label htmlFor="image">Image:</label>
-                    <Input type="file" id="image" accept="image/png, image/jpeg"></Input>
+                    <TextField type="text" label="Band" variant="outlined" />
+                    <TextField type="text" label="Name" variant="outlined" />
+                    <TextField type="text" label="Date" variant="outlined" />
+                    <Button variant="contained" component="label">Upload Image<input type="file" hidden accept="image/png, image/jpeg" /></Button>
+                    <Button
+                        containerElement='label' // <-- Just add me!
+                        label='My Label'>
+                        <input type="file" />
+                    </Button>
+                    <VinylFormButton>Create Vinyl</VinylFormButton>
                 </VinylFormContainer>
-                <VinylFormButton>Create</VinylFormButton>
             </AddVinylForm>
-        </VinylFormMain>
+        </VinylFormMain> 
     );
 }
  
