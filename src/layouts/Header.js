@@ -25,9 +25,10 @@ const HeaderText = styled(NavLink)`
     padding: 10px;
     color: #000; 
     margin-top: .5rem;
-
-    @media(max-width: 400px) {
+    
+    @media(max-width: 450px) {
         font-size: 1.8rem;
+        margin-top: 0;
     }
 
 `
