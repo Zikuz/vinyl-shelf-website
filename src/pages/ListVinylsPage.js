@@ -35,7 +35,7 @@ const SearchContainer = styled.div`
   top: 0;
   min-height: 10vh;
 
-  @media(max-width: 500px) {
+  @media(max-width: 700px) {
     flex-direction: column;
     padding: 10px 0;
   }

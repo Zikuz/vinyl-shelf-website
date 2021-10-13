@@ -43,6 +43,7 @@ const VinylFormHeaderText = styled.span`
     font-size: 2.5rem;
     font-weight: bold;
     letter-spacing: 0.2rem;
+    text-align: center;
     padding: 10px;
     color: #fff;
 `

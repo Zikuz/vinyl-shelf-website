@@ -31,6 +31,10 @@ const HeaderText = styled(NavLink)`
         margin-top: 0;
     }
 
+    @media(max-width: 310px) {
+        font-size: 1.5rem
+    }
+
 `
 
 const HeaderImg = styled.img`
@@ -38,7 +42,7 @@ const HeaderImg = styled.img`
     pointer-events: none;
     animation: ${logoRotate} infinite 10s linear;
 
-    @media(max-width: 400px) {
+    @media(max-width: 450px) {
         height: 40px;
     }
 `
