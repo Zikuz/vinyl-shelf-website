@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/vinyl-shelf-website/static/js/main.8b41932c.chunk.js",
-    "main.js.map": "/vinyl-shelf-website/static/js/main.8b41932c.chunk.js.map",
+    "main.js": "/vinyl-shelf-website/static/js/main.9cf30fad.chunk.js",
+    "main.js.map": "/vinyl-shelf-website/static/js/main.9cf30fad.chunk.js.map",
     "runtime-main.js": "/vinyl-shelf-website/static/js/runtime-main.684ba4a1.js",
     "runtime-main.js.map": "/vinyl-shelf-website/static/js/runtime-main.684ba4a1.js.map",
-    "static/js/2.71233b99.chunk.js": "/vinyl-shelf-website/static/js/2.71233b99.chunk.js",
-    "static/js/2.71233b99.chunk.js.map": "/vinyl-shelf-website/static/js/2.71233b99.chunk.js.map",
+    "static/js/2.14df479d.chunk.js": "/vinyl-shelf-website/static/js/2.14df479d.chunk.js",
+    "static/js/2.14df479d.chunk.js.map": "/vinyl-shelf-website/static/js/2.14df479d.chunk.js.map",
     "static/js/3.671ddd08.chunk.js": "/vinyl-shelf-website/static/js/3.671ddd08.chunk.js",
     "static/js/3.671ddd08.chunk.js.map": "/vinyl-shelf-website/static/js/3.671ddd08.chunk.js.map",
     "index.html": "/vinyl-shelf-website/index.html",
-    "static/js/2.71233b99.chunk.js.LICENSE.txt": "/vinyl-shelf-website/static/js/2.71233b99.chunk.js.LICENSE.txt",
+    "static/js/2.14df479d.chunk.js.LICENSE.txt": "/vinyl-shelf-website/static/js/2.14df479d.chunk.js.LICENSE.txt",
     "static/media/add.95bbd674.svg": "/vinyl-shelf-website/static/media/add.95bbd674.svg",
     "static/media/arrow.fce0db3a.svg": "/vinyl-shelf-website/static/media/arrow.fce0db3a.svg",
     "static/media/img1.7b230108.jpg": "/vinyl-shelf-website/static/media/img1.7b230108.jpg",
@@ -25,7 +25,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.684ba4a1.js",
-    "static/js/2.71233b99.chunk.js",
-    "static/js/main.8b41932c.chunk.js"
+    "static/js/2.14df479d.chunk.js",
+    "static/js/main.9cf30fad.chunk.js"
   ]
 }
