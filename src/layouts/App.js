@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 import Navbar from './Navbar';
@@ -28,7 +28,7 @@ const GlobalStyled = createGlobalStyle`
 `
 export default function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <GlobalStyled />
         <Navbar />
         <Switch>

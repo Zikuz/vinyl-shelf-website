@@ -16,7 +16,7 @@ export default function Footer() {
     return (
         <FooterContainer>
             <FooterLink href='https://github.com/Zikuz' target="_blank">Ziku</FooterLink>
-            <FooterLink href='https://piotrek-hub.github.io/portfolio/' target="_blank">Piotrek</FooterLink>
+            {/* <FooterLink href='https://piotrek-hub.github.io/portfolio/' target="_blank">Piotrek</FooterLink> */}
         </FooterContainer>
     );
 }

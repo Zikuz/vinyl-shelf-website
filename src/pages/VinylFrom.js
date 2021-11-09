@@ -65,7 +65,7 @@ const AddVinylForm = styled.form`
     padding: 1rem;
     min-height: 60vh;
     width: 100%;
-    background: #dee2e6;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 
     @media(max-width: 450px) {
         min-height: 95vh;
@@ -85,14 +85,14 @@ const VinylInputsContainer = styled.div`
 `
 
 const Input = styled(InputUi)`
-    background-color: #fff;
+    background-color: rgba(250,250,250,0.9);
     border-radius: 5px;
     height: fit-content;
 `
 
 const VinylFormBox = styled.div`
     min-height: 20vh;
-    background-color: #fff;
+    background-color: rgba(250,250,250,0.9);
     box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
     border-radius: 5px;
     padding: 5px;
@@ -104,7 +104,7 @@ const VinylInputImage = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: #fff;
+    background-color: rgba(250,250,250,0.9);
     box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
     border-radius: 5px;
     margin: 0.5rem 0;
@@ -203,20 +203,19 @@ class VinylForm extends Component {
                 </VinylFormHeader>
                 <AddVinylForm onSubmit={this.handleSubmit}>
                     <VinylInputsContainer>
-                        <Input type="text" onChange={this.handleChange} value={band} name="band" label="Band" autoComplete="off" variant="outlined" />
-                        <Input type="text" onChange={this.handleChange} value={name} name="name" label="Name" autoComplete="off" variant="outlined" />
-                        <Input type="text" onChange={this.handleChange} value={date} name="date" label="Release date" autoComplete="off" variant="outlined" />
+                        <Input type="text" onChange={this.handleChange} value={band} name="band" label="Band" autoComplete="off" variant="filled" />
+                        <Input type="text" onChange={this.handleChange} value={name} name="name" label="Name" autoComplete="off" variant="filled" />
+                        <Input type="text" onChange={this.handleChange} value={date} name="date" label="Release date" autoComplete="off" variant="filled" />
                     </VinylInputsContainer>
                     
                     <VinylInputImage>
                         <ButtonUi variant="contained" component="label">Upload Image<input type="file" onChange={this.handleImageUpload} accept="image/*" hidden /></ButtonUi>
                         {img ? <VinylImage src={img} alt="img" /> : <VinylImage src={VinylImg} alt="img" />}
-                        {/* {img ? <VinylImage src={backGroungImage} alt="img" /> : <VinylImage src={VinylImg} alt="img" />} */}
                     </VinylInputImage>
 
                     <VinylFormBox>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <InputTrackList type="text" onChange={this.handleChange} value={track} name="track" autoComplete="off" label="Tracklist" variant="outlined" />
+                            <InputTrackList type="text" onChange={this.handleChange} value={track} name="track" autoComplete="off" label="Tracklist" variant="filled" />
                             <VinylFormButton variant="contained" onClick={this.handleTracklist}><img src={AddIcon} alt="+"/></VinylFormButton>
                         </div>
                         <Tracklist>

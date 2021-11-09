@@ -45,11 +45,9 @@ const HomePageLink = styled(NavLink)`
     }
 `
 
-
-
-const HomePageSection = styled.div`
-    height: 95vh;
-`
+// const HomePageSection = styled.div`
+//     height: 95vh;
+// `
 
 
 export default function HomePage() {
@@ -62,8 +60,8 @@ export default function HomePage() {
                 <HomePageText>Welcome at the Vinyl Shelf Webiste!</HomePageText>
                 <HomePageLink to='/list-vinyls'>Vinyl Shelf</HomePageLink>
             </HomePageHeader>
-            <HomePageSection>
-            </HomePageSection>
+            {/* <HomePageSection>
+            </HomePageSection> */}
         </HomePageMain>
         
     );
